@@ -59,6 +59,15 @@ docker-compose down
 - @nestjs/mongoose
 <!-- - TypeORM -->
 
+
+# Production Build
+1. Crear archivo `.env.prod` con las variables de entorno
+2. LLenar los valores de las variables de entorno
+3. Crear la nueva imagen de Docker
+```
+docker compose -f compose.prod.yaml --env-file .env.prod up -d --build
+```
+
 ## Autor
 
 [Ahriman](https://github.com/ahriman)
