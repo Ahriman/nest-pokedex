@@ -3,6 +3,8 @@
 /node_modules
 /build
 
+src/steam.ts
+
 /mongo
 
 # Logs
@@ -39,6 +41,7 @@ lerna-debug.log*
 
 # dotenv environment variable files
 .env
+.env.prod
 .env.development.local
 .env.test.local
 .env.production.local

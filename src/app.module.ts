@@ -1,3 +1,4 @@
+import { join } from 'path'; // en Node
 import { Module } from '@nestjs/common';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { MongooseModule } from '@nestjs/mongoose';
@@ -18,11 +19,14 @@ import { JoiValidationSchema } from './config/joi.validation';
     }),
 
     ServeStaticModule.forRoot({
-      rootPath: process.cwd() + '/public',
+      // rootPath: process.cwd() + '/public',
+      rootPath: join(__dirname,'..','public'), 
       // exclude: ['/api*'],
     }),
 
-    MongooseModule.forRoot(process.env.MONGODB),
+    MongooseModule.forRoot(process.env.MONGODB, {
+      dbName: 'nest-pokemon',
+    }),
 
     PokemonModule,
 
@@ -31,4 +35,8 @@ import { JoiValidationSchema } from './config/joi.validation';
     SeedModule,
   ],
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {
+    console.log(`🚀 Application is running on: http://localhost:${process.env.PORT}`);
+  }
+}
