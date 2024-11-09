@@ -20,6 +20,20 @@ pnpm i -g @nestjs/cli
 docker-compose up -d
 ```
 
+5. Clonar el archivo `.env.template` y renombrarlo a `.env`
+
+6. Asigar valor a las variables de entorno definidas en el archivo `.env`
+
+7. Ejecutar la aplicación en dev:
+```bash
+pnpm run start:dev
+```
+
+8. Reconstruir la base de datos con la semilla (seed)
+```bash
+http://localhost:3000/api/v2/seed # Añadir el token de autenticación solo para administradores, desarrolladores, etc.
+```
+
 <!-- 5. Ejecutar
 ```bash
 nest start
